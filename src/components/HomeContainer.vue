@@ -74,7 +74,7 @@
                         <br/>
                         <br/>
                         <small>
-                            &copy; 2017 <a href="javascript:void(0)" class="text-info">Kronos Team</a>, made with love for a better web
+                            &copy; 2018 Developed by <a href="http://nicolasfredes.cl" class="text-info">Nicolas Fredes</a>
                         </small>
                     </div>
                 </footer>
