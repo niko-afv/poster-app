@@ -57,7 +57,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-md-12 col-md-offset-5">
+                            <div class="col-md-5 col-md-offset-4">
                                 <a class="btn btn-block btn-danger btn-fill" href="javascript:void(0)">
                                     <div class="icon">
                                         <i class="fa fa-facebook-square fa-2x"></i>
