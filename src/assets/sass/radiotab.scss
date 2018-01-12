@@ -1,0 +1,15 @@
+$tab-option-width: 50%;
+$tab-option-display: inline-block;
+
+.options{
+  list-style: none;
+}
+.options li{
+  float: left;
+  display: $tab-option-display;
+  width: $tab-option-width;
+}
+
+.radiotab-container{
+  padding: 10px 0 20px 0;
+}
