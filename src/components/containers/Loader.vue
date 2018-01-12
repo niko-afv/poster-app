@@ -8,7 +8,7 @@
                     <div class="container">
                         <div class="row loader">
                             <div class="col-md-12 col-md-offset-5">
-                                <ring-loader :loading="true" :size="size"></ring-loader>
+                                <moon-loader :loading="true" :size="size"></moon-loader>
                             </div>
                         </div>
                     </div>
@@ -21,8 +21,9 @@
 </template>
 
 <script>
-    import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+    import MoonLoader from 'vue-spinner/src/MoonLoader.vue'
     import RingLoader from 'vue-spinner/src/RingLoader.vue'
+    import DotLoader from 'vue-spinner/src/DotLoader.vue'
     export default {
         name: 'loader',
         data () {
@@ -32,7 +33,7 @@
         },
         props : ['show'],
         components: {
-            PulseLoader, RingLoader
+            MoonLoader, RingLoader, DotLoader
         }
     }
 </script>
