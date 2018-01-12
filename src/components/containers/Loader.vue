@@ -46,4 +46,17 @@
     .row.loader > div{
         width: 12%; margin: 0 auto;
     }
+    @media (max-width: 1024px) {
+        .row.loader > div{
+            width: 20%; margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .row.loader > div{
+            width: 36%; margin: 0 auto;
+        }
+    }
+
+
 </style>
