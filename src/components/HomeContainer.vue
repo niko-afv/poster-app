@@ -9,12 +9,13 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="header-text">
-                                    <h2>Poster</h2>
-                                    <h4>Social Managers App</h4>
+                                    <h2>Poster
+                                    </h2>
+                                    <h4>Organiza, Programa y disfruta, haz tu vida mas facil</h4>
                                     <hr />
                                 </div>
                             </div>
-                            <div class="col-md-5 col-md-offset-4">
+                            <div class="col-md-5 col-md-offset-1">
                                 <div class="media">
                                     <div class="media-left">
                                         <div class="icon">
@@ -36,7 +37,6 @@
                                     </div>
                                     <div class="media-body">
                                         <h4>Programa Tus Publicaciones
-                                            <img width="50" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
                                         </h4>
                                         Manten organizadas tu redes sociales, programando el dia y la hora de cada publicación.
                                     </div>
@@ -50,15 +50,18 @@
                                     </div>
                                     <div class="media-body">
                                         <h4>Organiza tus cuentas
-                                            <img width="50" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
                                         </h4>
                                         Puedes crear grupos de cuentas, para los diferentes propositos que manejes.
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="col-md-5 col-md-offset-4">
-                                <a class="btn btn-block btn-danger btn-fill" href="javascript:void(0)">
+                            <div class="col-md-4 col-md-offset-1">
+
+                                <figure style="text-align: center">
+                                    <img width="200" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
+                                </figure>
+                                <a class="btn btn-block btn-facebook btn-hover btn-fill" href="javascript:void(0)">
                                     <div class="icon">
                                         <i class="fa fa-facebook-square fa-2x"></i>
                                     </div>
