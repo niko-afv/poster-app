@@ -7,7 +7,7 @@
                 <div class="content">
                     <div class="container">
                         <div class="row loader">
-                            <div class="col-md-12 col-md-offset-5">
+                            <div class="col-md-12 col-xs-12 col-md-offset-5">
                                 <moon-loader :loading="true" :size="size"></moon-loader>
                             </div>
                         </div>

@@ -28,7 +28,7 @@ export default {
         var self = this
         setTimeout(function () {
             self.loading = false
-        },4000)
+        },3000)
     }
 }
 </script>
