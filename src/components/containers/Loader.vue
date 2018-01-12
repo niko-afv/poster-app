@@ -7,7 +7,7 @@
                 <div class="content">
                     <div class="container">
                         <div class="row loader">
-                            <div class="col-md-12 col-xs-12 col-md-offset-5 col-xs-offset-3">
+                            <div>
                                 <moon-loader :loading="true" :size="size"></moon-loader>
                             </div>
                         </div>
@@ -39,7 +39,11 @@
 </script>
 
 <style>
-    .loader.row{
+    .row.loader{
         padding: 25% 0% !important;
+        text-align: center;
+    }
+    .row.loader > div{
+        width: 12%; margin: 0 auto;
     }
 </style>
