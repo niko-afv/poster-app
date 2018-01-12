@@ -58,8 +58,10 @@
 
                             </div>
                             <div class="col-md-12 col-md-offset-5">
-                                <a class="btn btn-wd btn-danger btn-fill" href="http://poster.nicolasfredes.cl">
-                                    ENTRAR
+                                <a class="btn btn-block btn-danger btn-fill" href="javascript:void(0)">
+                                    <div class="icon">
+                                        <i class="fa fa-facebook-square fa-2x"></i>
+                                    </div>
                                 </a>
                                 <!--
                                 <router-link to="/dashboard" class="btn btn-wd btn-danger btn-fill">Entrar</router-link>
