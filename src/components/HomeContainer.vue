@@ -22,7 +22,8 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h4>Publicación Multiple</h4>
+                                        <h4>Publicación Multiple
+                                        </h4>
                                         Crea un unico post y publicalo en diferentes redes sociales.
                                     </div>
                                 </div>
@@ -34,7 +35,9 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h4>Programa Tus Publicaciones</h4>
+                                        <h4>Programa Tus Publicaciones
+                                            <img width="50" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
+                                        </h4>
                                         Manten organizadas tu redes sociales, programando el dia y la hora de cada publicación.
                                     </div>
                                 </div>
@@ -46,7 +49,9 @@
                                         </div>
                                     </div>
                                     <div class="media-body">
-                                        <h4>Organiza tus cuentas</h4>
+                                        <h4>Organiza tus cuentas
+                                            <img width="50" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
+                                        </h4>
                                         Puedes crear grupos de cuentas, para los diferentes propositos que manejes.
                                     </div>
                                 </div>
