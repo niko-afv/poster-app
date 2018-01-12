@@ -53,7 +53,7 @@
 
                             </div>
                             <div class="col-md-12 col-md-offset-5">
-                                <a class="btn btn-wd btn-danger btn-fill" href="http://poster.test">Entrar</a>
+                                <a class="btn btn-wd btn-danger btn-fill" href="http://poster.nicolasfredes.cl">Entrar</a>
                                 <!--
                                 <router-link to="/dashboard" class="btn btn-wd btn-danger btn-fill">Entrar</router-link>
                                 -->
