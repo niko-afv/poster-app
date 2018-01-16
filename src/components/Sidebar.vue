@@ -57,18 +57,17 @@
         },
         data () {
             return {
-                title: {normal: "Adminus", responsive: "AD"},
+                title: {normal: "PosterApp", responsive: "PA"},
                 items: [
                     {name:"Dashboard", icon:"pe-7s-graph", route: "/dashboard"},
                     {
-                        name: "Procesar",
-                        icon: "pe-7s-ball",
+                        name: "Cuentas",
+                        icon: "pe-7s-users",
                         subitems: [
-                            {route: "/settlements", name: "Liquidaciones"},
-                            {route: "/billings" , name: "Facturas"}
+                            {route: "/accounts", name: "Ver todas las cuentas"},
+                            {route: "/acounts/add" , name: "Añadir cuenta"}
                         ],
                     },
-                    {name: "Cuentas", icon:"pe-7s-users", route: "/accounts"}
                 ]
             }
         },

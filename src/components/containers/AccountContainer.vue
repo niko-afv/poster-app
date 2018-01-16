@@ -10,7 +10,7 @@
 
 <script>
     import MySection from '../MySection.vue'
-    import AccountForm from '../forms/AccountForm.vue'
+    import AccountList from '../AccountList.vue'
     import * as Auth from '../../services/auth'
 
     export default {
@@ -18,12 +18,12 @@
         data() {
             return {
                 components:{
-                    AccountForm
+                    AccountList
                 }
             }
         },
         components: {
-            MySection, AccountForm
+            MySection, AccountList
         }
     }
 </script>

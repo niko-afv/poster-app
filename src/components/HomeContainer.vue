@@ -61,7 +61,7 @@
                                 <figure style="text-align: center">
                                     <img width="200" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
                                 </figure>
-                                <a class="btn btn-block btn-facebook btn-hover btn-fill" href="javascript:void(0)">
+                                <a class="btn btn-block btn-facebook btn-hover btn-fill" href="http://poster.test">
                                     <div class="icon">
                                         <i class="fa fa-facebook-square fa-2x"></i>
                                     </div>

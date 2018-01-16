@@ -49,11 +49,11 @@
         },
         created(){
             console.log(this.$keycloak)
-            this.firstname = this.$keycloak.profile.firstName
-            this.lastname = this.$keycloak.profile.lastName
-            this.email = this.$keycloak.profile.email
-            this.username = this.$keycloak.profile.username
-            this.avatar = this.$keycloak.profile.attributes.avatar
+            this.firstname = "Nicolás"
+            this.lastname = 'Fredes'
+            this.email = 'niko.afv@gmail.com'
+            this.username = 'niko.afv'
+            this.avatar = ''
         }
     }
 </script>
