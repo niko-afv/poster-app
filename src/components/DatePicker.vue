@@ -1,7 +1,7 @@
 <template>
     <section class="component_content">
             <section class="component_main" v-show="show_component" >
-            <label>Ingrese un rango de fechas</label>
+            <label>Ingrese una de fecha</label>
             <div class="input-group" >
                 <flat-pickr
                         v-model="date"
@@ -92,12 +92,16 @@
                 // Get more form https://chmln.github.io/flatpickr/options/
                 config: {
                     wrap: true, // set wrap to true only when using 'input-group'
-                    altFormat: 'D j F  Y ',
+                    altFormat: 'D j F  Y H:i',
                     altInput: true,
-                    dateFormat: 'Y-m-d',
+                    dateFormat: 'Y-m-d H:i',
                     locale: Spanish, // locale for this instance only
                     maxDate: moment().utc().endOf('day').format(),
-                    mode: "range",
+                    mode: "single",
+                    enableTime: true,
+                    onChange: function(e,date){
+                        console.log(date)
+                    }
                 },
 
                 show_component: true,

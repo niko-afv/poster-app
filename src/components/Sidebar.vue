@@ -65,7 +65,7 @@
                         icon: "pe-7s-users",
                         subitems: [
                             {route: "/accounts", name: "Ver todas las cuentas"},
-                            {route: "/acounts/add" , name: "Añadir cuenta"}
+                            {route: "/accounts/add" , name: "Añadir cuenta"}
                         ],
                     },
                 ]
