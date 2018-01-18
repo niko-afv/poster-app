@@ -39,7 +39,7 @@ router.beforeEach((to, from, next) => {
 
     if(verify) {
         console.log(to.params)
-        axios.post('http://poster.test/api/authenticate',
+        axios.post('http://poster.nicolasfredes.cl/api/authenticate',
         {
             user_id: to.params.user_id,
             token: to.params.token,
