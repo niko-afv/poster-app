@@ -55,6 +55,8 @@ router.beforeEach((to, from, next) => {
                 Vue.ls.set('user_id', to.params.user_id,1000*60*60);
                 Vue.ls.set('user_token', to.params.token,1000*60*60);
                 router.push('/dashboard');
+            }else{
+                console.warn('An error has ocurred: ' + response.data.message)
             }
             //this.postResults.push(response);
         })
