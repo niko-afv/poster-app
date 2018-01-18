@@ -28,7 +28,7 @@
                             <h4>Your Fanpages</h4>
                         </div>
                         <div class="content">
-                            <account-list url="http://poster.test/api/fanpages/"></account-list>
+                            <account-list url="http://poster.nicolasfredes.cl/api/fanpages/"></account-list>
                         </div>
                     </div>
                 </div>
