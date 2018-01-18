@@ -6,16 +6,15 @@ import { routes } from './routes.js'
 import axios from 'axios';
 import VueLocalStorage from 'vue-ls';
 
+
 global.jQuery = jQuery
 global.$ = jQuery
-
 
 let Bootstrap = require('bootstrap')
 import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/light-bootstrap-dashboard.css'
 import './assets/css/pe-icon-7-stroke.css'
 import 'font-awesome/css/font-awesome.css'
-
 
 import * as Auth from './services/auth'
 

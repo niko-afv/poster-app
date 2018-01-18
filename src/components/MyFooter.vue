@@ -14,7 +14,7 @@
         name: 'MyFooter',
         data() {
             return {
-                footerMsg: 'Developed with love by Kronos Team'
+                footerMsg: 'Developed by Nicolás Fredes'
             }
         }
     }

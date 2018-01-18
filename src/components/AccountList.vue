@@ -55,14 +55,15 @@
         name: "AccountList",
         data () {
             return {
-                pages: []
+                pages: [],
             }
         },
-        beforeCreate: function () {
+        props : ['url'],
+        created: function () {
             var user_id = this.$ls.get('user_id');
             var token = this.$ls.get('user_token');
 
-            axios.get('http://poster.test/api/pages/',
+            axios.get(this.url,
                 { headers: {
                     'Content-type': 'application/json',
                     'Accept': 'application/json',

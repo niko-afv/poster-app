@@ -1,18 +1,77 @@
 <template>
-    <form id="MyForm" :method="method" :action="action" class="form-horizontal">
-        <div v-for="(component, index) in inputs">
-            <div class="col-md-10">
-                <component
-                        v-bind:is="component.instance"
-                        ref="drpzone"
-                        :options="component.options"
-                        id=""
-                ></component>
+    <!--
+    <div id="MyForm" class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    -->
+    <form-wizard
+            title="Account Import"
+            subtitle="Complete all steps to import your account"
+            nextButtonText="Continue"
+            backButtonText="Go back"
+            validateOnBack="true"
+    >
+        <tab-content title="What account kind you want to import?">
+
+            <select class="form-control" v-model="account_type">
+                <option value="facebook">Facebook Fanpage</option>
+                <option value="instagram">Instagram</option>
+            </select>
+
+            <hr/>
+
+            <div v-if="account_type == 'facebook'">
+                <div class="">
+                    <div class="card">
+                        <div class="header">
+                            <h4>Your Fanpages</h4>
+                        </div>
+                        <div class="content">
+                            <account-list url="http://poster.test/api/fanpages/"></account-list>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="clearfix"></div>
+            <div v-if="account_type == 'instagram'">
+                <div class="card">
+                    <div class="header">
+                        <h4>Login with Instagram account</h4>
+                    </div>
+                    <div class="content">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input class="form-control" name="username" placeholder="Username"  />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input class="form-control" name="password" placeholder="******" type="password"  />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </tab-content>
+        <tab-content title="Select your account">
+            My second tab content
+        </tab-content>
+        <tab-content title="Set a name">
+            Yuhuuu! This seems pretty damn simple
+        </tab-content>
+    </form-wizard>
+    <!--
+                </div>
+            </div>
+
         </div>
-    </form>
+    </div>
+    -->
 </template>
 
 
@@ -20,145 +79,28 @@
     import FileUploader from '../FileUploader.vue'
     import TextareaUploader from '../TextareaUploader.vue'
     import datePicker from '../DatePicker.vue'
+    import VueFormWizard from 'vue-form-wizard'
+    import AccountList from '../AccountList.vue'
+
+    import 'vue-form-wizard/dist/vue-form-wizard.min.css'
+    Vue.use(VueFormWizard)
+    import Vue from 'vue'
 
     export default {
-        name: "MyForm",
+        name: "wizardCard",
         data() {
             return {
-                method: 'get',
-                inputs: [
-                    {
-                        instance: FileUploader,
-                        ref: 'drpzone',
-                        options: {
-
-                            url: 'http://172.17.41.27/api/accounts/sync/fromFile',
-                            paramName: 'file',
-                            method: 'POST',
-                            acceptedFiles: '.csv',
-                            addRemoveLinks: true,
-                            timeout: 120000,
-                            autoProcessQueue: false,
-                            dictDefaultMessage: 'Arrastre el archivo a procesar',
-                            headers: {
-                                "Accept": "application/json",
-                                "Cache-Control": "no-cache",
-                                "X-Requested-With": "XMLHttpRequest"
-                            },
-                            error(e,b){
-                                console.log("error");
-                                console.log(e);
-                                console.log(b);
-                            },
-                            success(file, response){
-                                console.log("success");
-                                var fileuploader = vm.$children[0].$children[0].$children[2].$children[0].$children[0].$children[0].$children[0];
-                                console.log(fileuploader);
-
-                                if(!response.error){
-                                    fileuploader.completed = true
-                                }else{
-                                    fileuploader.failed = true
-                                }
-                            },
-                            canceled(file){
-                                console.log("canceled");
-                                console.log(file);
-                            },
-                            processing(file, b,c){
-                                console.log(file);
-                            }
-                        }
-                    },
-                    {
-                        instance: TextareaUploader,
-                        options: {
-                            url: 'http://172.17.41.27/api/accounts/sync/fromJson'
-                        }
-                    },
-                    {
-                        instance: datePicker,
-                        options:{
-                            url: 'http://172.17.41.27/api/documents/billings/sync/dateRange'
-                        }
-                    }
-                ],
-                /*
-                "options": {
-                    byFile: {
-                        'label' : "Subir Archivo",
-                        isActive: true,
-                        inputs: [
-                            {
-                                instance: FileUploader,
-                                ref: 'drpzone',
-                                options: {
-
-                                    url: 'http://172.17.41.27/api/accounts/sync/fromFile',
-                                    paramName: 'file',
-                                    method: 'POST',
-                                    acceptedFiles: '.csv',
-                                    addRemoveLinks: true,
-                                    timeout: 120000,
-                                    autoProcessQueue: false,
-                                    dictDefaultMessage: 'Arrastre el archivo a procesar',
-                                    headers: {
-                                        "Accept": "application/json",
-                                        "Cache-Control": "no-cache",
-                                        "X-Requested-With": "XMLHttpRequest"
-                                    },
-                                    error(e,b){
-                                        console.log("error");
-                                        console.log(e);
-                                        console.log(b);
-                                    },
-                                    success(file, response){
-                                        console.log("success");
-                                        var fileuploader = vm.$children[0].$children[0].$children[2].$children[0].$children[0].$children[0].$children[0];
-                                        console.log(fileuploader);
-
-                                        if(!response.error){
-                                            fileuploader.completed = true
-                                        }else{
-                                            fileuploader.failed = true
-                                        }
-                                    },
-                                    canceled(file){
-                                        console.log("canceled");
-                                        console.log(file);
-                                    },
-                                    processing(file, b,c){
-                                        console.log(file);
-                                    }
-                                }
-                            },
-                        ]
-                    },
-                    byText: {
-                        'label' : "Ingresar Texto",
-                        isActive: false,
-                        inputs: [
-                            {
-                                instance: TextareaUploader,
-                                options: {
-                                    url: 'http://172.17.41.27/api/accounts/sync/fromJson'
-                                }
-                            }
-                        ]
-                    }
-                },
-                */
+                account_type: 'facebook'
             }
         },
         props :['action'],
         components: {
-            FileUploader, TextareaUploader,datePicker
+            VueFormWizard, AccountList
+        },
+        mounted() {
+
         }
+
     }
 </script>
 
-<style>
-    form > div {
-        margin: 30px 0;
-    }
-</style>
