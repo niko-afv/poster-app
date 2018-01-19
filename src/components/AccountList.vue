@@ -1,49 +1,86 @@
 <template>
     <div>
-        <table v-if="pages.length" class="table table-bigboy">
+
+        <div v-for="page in pages" class="col-md-4 visible-xs">
+            <div class="card">
+                <div class="header text-center">
+                    <h4 class="title">{{ page.name }}</h4>
+                    <p class="category">{{ page.category }}</p>
+                </div>
+                <div class="content text-center">
+                    <div class="img-container">
+                        <img :src="page.photo" :alt="page.name + ' picture'">
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="legend">
+                        <i class="fa fa-clock-o"></i> Page created at 2016 Jan 15
+                    </div>
+                    <hr>
+                    <div class="stats">
+                        <button type="button" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
+                            <i class="fa fa-link"></i> Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+
+        <table v-if="pages.length" class="table table-bigboy hidden-xs">
             <thead>
             <tr>
                 <th class="text-center">Picture</th>
                 <th >Account Name</th>
-                <th class="th-description">Type</th>
-                <th class="text-right">Date</th>
-                <th></th>
+                <th v-if="show_type" class="th-description">Type</th>
+                <th>Vincular</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="page in pages">
                 <td>
                     <div class="img-container">
-                        <img :src="page.photo" :alt="page.name + ' picture'">
+                        <img :src="page.photo" :alt="page.name + ' picture'" width="40%">
                     </div>
                 </td>
                 <td class="td-name">
                     {{ page.name }}
                 </td>
-                <td>
+                <td v-if="show_type">
                     Facebook
                 </td>
-                <td class="td-number">{{ page.updated_at }}</td>
                 <td class="td-actions">
+                    <!--
                     <button type="button" rel="tooltip" data-placement="left" title="View Post" class="btn btn-info btn-simple btn-icon">
-                        <i class="fa fa-image"></i>
+                        <i class="fa fa-unlink"></i>
                     </button>
-                    <button type="button" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-simple btn-icon">
-                        <i class="fa fa-edit"></i>
-                    </button>
-                    <button type="button" rel="tooltip" data-placement="left" title="Remove Post" class="btn btn-danger btn-simple btn-icon ">
-                        <i class="fa fa-times"></i>
+                    -->
+                    <button type="button" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
+                        <i class="fa fa-link"></i> Link
                     </button>
                 </td>
             </tr>
             </tbody>
         </table>
 
+
         <div v-else="" style="margin-top: 10px;">
-            <div class="alert alert-danger" role="alert">
-                No content to show
+            <div class="card">
+
+                <div class="content">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Something went wrong</strong>
+                        <hr class="message-inner-separator">
+                        <p>
+                            No content to show
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
@@ -56,6 +93,7 @@
         data () {
             return {
                 pages: [],
+                show_type: false
             }
         },
         props : ['url'],

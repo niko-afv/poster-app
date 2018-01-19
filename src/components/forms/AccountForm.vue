@@ -14,18 +14,19 @@
     >
         <tab-content title="What account kind you want to import?">
 
-            <select class="form-control" v-model="account_type">
-                <option value="facebook">Facebook Fanpage</option>
-                <option value="instagram">Instagram</option>
+            <select v-model="account_type" class="selectpicker" data-title="Single Select" data-style="btn-default btn-block" data-menu-style="dropdown-blue">
+                <option>Select a type</option>
+                <option value="facebook"><i class="fa fa-facebook-official"></i>Facebook Fanpage</option>
+                <option value="instagram"><i class="fa fa-instagram"></i>Instagram</option>
             </select>
 
-            <hr/>
-
+        </tab-content>
+        <tab-content title="Select your account">
             <div v-if="account_type == 'facebook'">
                 <div class="">
                     <div class="card">
                         <div class="header">
-                            <h4>Your Fanpages</h4>
+                            <h4><i class="fa fa-facebook-official"></i> Your Fanpages</h4>
                         </div>
                         <div class="content">
                             <account-list url="http://poster.nicolasfredes.cl/api/fanpages/"></account-list>
@@ -35,33 +36,45 @@
 
             </div>
 
-            <div v-if="account_type == 'instagram'">
+            <div v-else-if="account_type == 'instagram'">
                 <div class="card">
                     <div class="header">
-                        <h4>Login with Instagram account</h4>
+                        <h4><i class="fa fa-instagram"></i> Instagram account</h4>
                     </div>
                     <div class="content">
+                        <h4>Login</h4>
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input class="form-control" name="username" placeholder="Username"  />
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
                                 <input class="form-control" name="password" placeholder="******" type="password"  />
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div v-else>
+                <div class="card">
+
+                    <div class="content">
+                        <div class="alert alert-warning">
+                            <span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Something went wrong</strong>
+                            <hr class="message-inner-separator">
+                            <p>
+                                You must select an account type
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </tab-content>
-        <tab-content title="Select your account">
-            My second tab content
-        </tab-content>
-        <tab-content title="Set a name">
+        <tab-content title="Give name and group">
             Yuhuuu! This seems pretty damn simple
         </tab-content>
     </form-wizard>
@@ -82,6 +95,7 @@
     import VueFormWizard from 'vue-form-wizard'
     import AccountList from '../AccountList.vue'
 
+    import selectPicker from '../../assets/js/bootstrap-selectpicker'
     import 'vue-form-wizard/dist/vue-form-wizard.min.css'
     Vue.use(VueFormWizard)
     import Vue from 'vue'
@@ -90,7 +104,7 @@
         name: "wizardCard",
         data() {
             return {
-                account_type: 'facebook'
+                account_type: 'facebook',
             }
         },
         props :['action'],
@@ -98,7 +112,7 @@
             VueFormWizard, AccountList
         },
         mounted() {
-
+            $(".selectpicker").selectpicker();
         }
 
     }
