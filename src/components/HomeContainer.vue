@@ -9,10 +9,12 @@
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="header-text">
-                                    <h2>Poster
+                                    <h2>
+                                        <img src="../assets/img/app/poster_logo_white.png" width="50%" />
                                     </h2>
-                                    <h4>Organiza, Programa y disfruta, haz tu vida mas facil</h4>
                                     <hr />
+                                    <h4>Organiza, Programa y disfruta, haz tu vida mas facil</h4>
+
                                 </div>
                             </div>
                             <div class="col-md-5 col-md-offset-1">
@@ -61,7 +63,7 @@
                                 <figure style="text-align: center">
                                     <img width="200" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
                                 </figure>
-                                <a class="btn btn-block btn-facebook btn-hover btn-fill" href="http://poster.nicolasfredes.cl">
+                                <a class="btn btn-block btn-facebook btn-hover btn-fill" href="javascript:void(0);">
                                     <div class="icon">
                                         <i class="fa fa-facebook-square fa-2x"></i>
                                     </div>
