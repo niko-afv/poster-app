@@ -57,6 +57,4 @@
             width: 36%; margin: 0 auto;
         }
     }
-
-
 </style>

@@ -10,7 +10,7 @@
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="header-text">
                                     <h2>
-                                        <img src="../assets/img/app/poster_logo_white.png" width="50%" />
+                                        <img class="center-block img-responsive" src="../assets/img/app/poster_logo_white.png" />
                                     </h2>
                                     <hr />
                                     <h4>Organiza, Programa y disfruta, haz tu vida mas facil</h4>
@@ -60,8 +60,8 @@
                             </div>
                             <div class="col-md-4 col-md-offset-1">
 
-                                <figure style="text-align: center">
-                                    <img width="200" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
+                                <figure>
+                                    <img class="center-block img-responsive" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
                                 </figure>
                                 <a class="btn btn-block btn-facebook btn-hover btn-fill" href="javascript:void(0);">
                                     <div class="icon">
