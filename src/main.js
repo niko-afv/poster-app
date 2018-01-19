@@ -67,7 +67,11 @@ router.beforeEach((to, from, next) => {
         return
     }
     if(auth) {
-        Auth.initAuth(true)
+        var user_id = Vue.ls.get('user_id', null);
+        var token = Vue.ls.get('token', null);
+        if(user_id == null || token == null){
+            router.push('/dashboard');
+        }
         next()
     }else{
         next()
