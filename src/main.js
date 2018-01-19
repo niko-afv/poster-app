@@ -70,7 +70,7 @@ router.beforeEach((to, from, next) => {
         var user_id = Vue.ls.get('user_id', null);
         var token = Vue.ls.get('user_token', null);
         if(user_id == null || token == null){
-            router.push('/dashboard');
+            router.push('/home');
         }
         next()
     }else{
