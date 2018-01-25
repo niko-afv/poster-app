@@ -12,7 +12,7 @@
             </a>
             <div class="collapse" id="profileCollapse">
                 <ul class="nav">
-                    <li v-for="item in menu.items"><a :href="item.href">{{ item.name }}</a></li>
+                    <li v-for="item in menu.items"><a :href="item.href" v-on:click="item.event">{{ item.name }}</a></li>
                 </ul>
             </div>
         </div>
@@ -34,9 +34,17 @@
                 menu: {
                     items: [
                         {name: "Mi Perfil", icon: "", href: 'javascript:void(0);'},
-                        {name:"Configuraciones", icon:"", href:'javascript:void(0);'}
+                        {name:"Configuraciones", icon:"", href:'javascript:void(0);'},
+                        {name:"Cerrar Sesión", icon:"", href:'javascript:void(0);', event: this.logout}
                     ]
                 }
+            }
+        },
+        methods: {
+            logout(){
+                this.$ls.remove('user_id');
+                this.$ls.remove('user_token');
+                this.$router.go('/');
             }
         },
         watch: {
