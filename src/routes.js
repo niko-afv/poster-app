@@ -9,8 +9,8 @@ import Vue from 'vue'
 export const routes = [
     { path: '/', component: AppLayout, name: 'app', redirect: '/home', meta: {}, children : [
         { path: '/dashboard' , component: DashboardContainer, name: 'dashboard', meta: { auth: true }},
-        { path: 'accounts' , component: AccountContainer, name: 'accounts', meta: { auth: false }},
-        {path: 'accounts/add', component: AccountForm, name: 'account_add'}
+        { path: 'accounts' , component: AccountContainer, name: 'accounts', meta: { auth: true }},
+        {path: 'accounts/add', component: AccountForm, name: 'account_add', meta: { auth: true }}
     ]},
     { path: '/:user_id/:token', component: AppLayout, name: 'out',/* redirect: '/home',*/ meta: {verify:true}},
     { path: '/home', component: HomeContainer, name: 'home'},
