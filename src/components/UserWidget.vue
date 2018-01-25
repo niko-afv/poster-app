@@ -33,8 +33,8 @@
                 avatar: '',
                 menu: {
                     items: [
-                        {name: "Mi Perfil", icon: "", href: 'javascript:void(0);'},
-                        {name:"Configuraciones", icon:"", href:'javascript:void(0);'},
+                        {name: "Mi Perfil", icon: "", href: 'javascript:void(0);', event: this.void},
+                        {name:"Configuraciones", icon:"", href:'javascript:void(0);',event: this.void},
                         {name:"Cerrar Sesión", icon:"", href:'javascript:void(0);', event: this.logout}
                     ]
                 }
@@ -45,6 +45,9 @@
                 this.$ls.remove('user_id');
                 this.$ls.remove('user_token');
                 this.$router.go('/');
+            },
+            void(){
+                return
             }
         },
         watch: {
