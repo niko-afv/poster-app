@@ -63,7 +63,7 @@
                                 <figure>
                                     <img class="center-block img-responsive" src="http://xtremeproapparel.com/thumbnail.asp?file=assets/images/comingsoon1.png&maxx=300&maxy=0">
                                 </figure>
-                                <a class="btn btn-block btn-facebook btn-hover btn-fill" href="javascript:void(0);">
+                                <a class="btn btn-block btn-facebook btn-hover btn-fill" :href="url">
                                     <div class="icon">
                                         <i class="fa fa-facebook-square fa-2x"></i>
                                     </div>
@@ -94,11 +94,13 @@
 
 <script>
     import * as Auth from '../services/auth'
+    import * as Config from '../config/app'
 
     export default {
         name: 'home',
         data () {
             return {
+                url: Config.login_uri
             }
         }
     }

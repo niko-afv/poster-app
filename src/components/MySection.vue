@@ -2,7 +2,7 @@
     <div id = "MySection" class="card">
         <div v-for="(component, index) in components">
                 <component
-                        v-bind:is="component"
+                        v-bind:is="component.instance"
                         ref=""
                         :options="component.options"
                         id=""

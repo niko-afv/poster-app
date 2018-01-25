@@ -5,10 +5,14 @@ import jQuery from 'jquery'
 import { routes } from './routes.js'
 import axios from 'axios';
 import VueLocalStorage from 'vue-ls';
+import * as Config from './config/app'
 
+Vue.use(require('@websanova/vue-env'));
 
 global.jQuery = jQuery
 global.$ = jQuery
+global.axios = axios
+global._config = Config
 
 let Bootstrap = require('bootstrap')
 import 'bootstrap/dist/css/bootstrap.css'
@@ -38,8 +42,7 @@ router.beforeEach((to, from, next) => {
     var verify = to.meta.verify
 
     if(verify) {
-        console.log(to.params)
-        axios.post('http://poster.nicolasfredes.cl/api/authenticate',
+        axios.post(Config.domain_app+ 'authenticate',
         {
             user_id: to.params.user_id,
             token: to.params.token,
