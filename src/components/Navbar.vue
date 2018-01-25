@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse">
+                <button type="button" class="navbar-toggle" v-on:click="this.toggleMobileSidebar" data-toggle="collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -123,6 +123,7 @@
             return {
                 title: "Adminus",
                 mini_mode_active: false,
+                mobile_mode_active: false,
                 isWindows : navigator.platform.indexOf('Win') > -1 ? true : false,
                 items: [
                     {name: "Dashboard"},
@@ -144,6 +145,15 @@
             this.mini_mode_active = false
         },
         methods: {
+            toggleMobileSidebar(){
+                this.mobile_mode_active = true
+                var $html = $('html');
+                if($html.hasClass('nav-open')){
+                    $('html').removeClass('nav-open')
+                }else{
+                    $('html').addClass('nav-open')
+                }
+            },
             initMinimizeSidebar: function () {
                 // when we are on a Desktop Screen and the collapse is triggered we check if the sidebar mini is active or not. If it is active then we don't let the collapse to show the elements because the elements from the collapse are showing on the hover state over the icons in sidebar mini, not on the click.
                 if (this.mini_mode_active == true) {
