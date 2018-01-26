@@ -53,7 +53,7 @@
     export default {
         name: 'sidebar',
         created(){
-            console.log(this.$route);
+            //console.log(this.$route);
         },
         data () {
             return {
@@ -61,11 +61,19 @@
                 items: [
                     {name:"Dashboard", icon:"pe-7s-graph", route: "/dashboard"},
                     {
-                        name: "Cuentas",
+                        name: "Accounts",
                         icon: "pe-7s-users",
                         subitems: [
-                            {route: "/accounts", name: "Ver todas las cuentas"},
-                            {route: "/accounts/add" , name: "Añadir cuenta"}
+                            {route: "/accounts", name: "All accounts"},
+                            {route: "/accounts/add" , name: "Add account"}
+                        ],
+                    },
+                    {
+                        name: "Groups",
+                        icon: "pe-7s-network",
+                        subitems: [
+                            {route: "/groups", name: "All groups"},
+                            {route: "/groups/add" , name: "Add group"}
                         ],
                     },
                 ]

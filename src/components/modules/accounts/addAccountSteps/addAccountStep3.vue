@@ -28,11 +28,15 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="form-control" placeholder="Type a name" />
+                            <input v-model="account_name" class="form-control" placeholder="Type a name" />
                         </div>
 
                         <div class="form-group">
-                            <v-select></v-select>
+                            <v-select v-model="selected_group" :options="groups" label="name" :placeholder="'Select your group'"  >
+                                <template slot="option" slot-scope="option">
+                                    {{ option.name }} [ {{ option.accounts.length }} Cuentas agregadas ]
+                                </template>
+                            </v-select>
                         </div>
                     </div>
                 </div>
@@ -44,20 +48,61 @@
 
 <script>
     import vSelect from 'vue-select'
+    import axios from 'axios'
+    import * as Api from '../../../../config/api'
 
     export default {
         name: 'addAccountStep3',
-        props: ['account_to_show'],
+        props: {
+            account_to_show: Object,
+            sendGroup: {
+                type: Function,
+                require: true
+            },
+            sendAccountName: {
+                type: Function,
+                require: true
+            }
+        },
         data () {
-            return {}
+            return {
+                groups: [],
+                selected_group: null,
+                account_name: null,
+                token: this.$ls.get('user_token'),
+            }
         },
         components:{
             vSelect
         },
         watch: {
-            account_to_show(value){
-                
+            selected_group(group){
+                this.sendGroup(group)
+            },
+            account_name(name){
+                this.sendAccountName(name)
             }
+        },
+        created(){
+            var _self = this
+            axios.get(Api.urls.user_groups_list,
+                { headers: {
+                    'Content-type': 'application/json',
+                    'Accept': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Authorization': _self.token
+                }
+                })
+                .then(response => {
+                    if(response.data.success){
+                        _self.groups = response.data.data.groups
+                    }
+                    //this.postResults.push(response);
+                })
+                .catch(error => {
+                    console.log(error)
+                    //this.postResults.push(error);
+                });
         }
     }
 </script>

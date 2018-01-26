@@ -121,7 +121,7 @@
         name: 'navbar',
         data () {
             return {
-                title: "Adminus",
+                title: "Poster",
                 mini_mode_active: false,
                 mobile_mode_active: false,
                 isWindows : navigator.platform.indexOf('Win') > -1 ? true : false,

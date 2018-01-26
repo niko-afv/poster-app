@@ -1,23 +1,24 @@
 <template>
     <div>
-        <div v-for="account in this.accounts" class="col-md-4 visible-xs">
+        <!--
+        <div v-for="group in this.groups" class="col-md-4 visible-xs">
             <div class="card">
                 <div class="header text-center">
-                    <h4 class="title">{{ account.name }}</h4>
-                    <p class="category">{{ account.category }}</p>
+                    <h4 class="title">{{ group.name }}</h4>
+                    <p class="category">{{ group.category }}</p>
                 </div>
                 <div class="content text-center">
                     <div class="img-container">
-                        <img :src="account.image" :alt="account.name + ' picture'">
+                        <img :src="group.photo" :alt="group.name + ' picture'">
                     </div>
                 </div>
                 <div class="footer">
                     <div class="legend">
-                        <i class="fa fa-clock-o"></i> account created at 2016 Jan 15
+                        <i class="fa fa-clock-o"></i> group created at 2016 Jan 15
                     </div>
                     <hr>
                     <div class="stats">
-                        <button type="button" v-on:click="saveAccount" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
+                        <button type="button" v-on:click="saveGroup" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
                             <i class="fa fa-link"></i> Link
                         </button>
                     </div>
@@ -25,39 +26,39 @@
             </div>
         </div>
         <div class="clearfix"></div>
+        -->
 
-
-        <table v-if="accounts.length" class="table table-bigboy hidden-xs">
+        <table v-if="this.groups.length" class="table table-bigboy hidden-xs">
             <thead>
             <tr>
-                <th class="text-center">Picture</th>
-                <th >Account Name</th>
-                <th v-if="show_type" class="th-description">Type</th>
-                <th>Vincular</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Accounts</th>
+                <th width="15%">Action</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="account in accounts">
-                <td>
-                    <div class="img-container">
-                        <img :src="account.image" :alt="account.name + ' picture'" width="40%">
-                    </div>
-                </td>
+            <tr v-for="group in groups">
                 <td class="td-name">
-                    {{ account.name }}
+                    {{ group.name }}
                 </td>
-                <td v-if="show_type">
-                    Facebook
+                <td>
+                    {{ group.description }}
+                </td>
+                <td>
+                    {{ group.accounts.length }}
                 </td>
                 <td class="td-actions">
-                    <!--
-                    <button type="button" rel="tooltip" data-placement="left" title="View Post" class="btn btn-info btn-simple btn-icon">
-                        <i class="fa fa-unlink"></i>
-                    </button>
-                    -->
-                    <button type="button" v-on:click="saveAccount(account)" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
-                        <i class="fa fa-link"></i> Link
-                    </button>
+
+                    <div class="btn-group">
+                        <a v-on:click="saveGroup(group)" rel="tooltip" title="Delete group" class="btn btn-danger btn-icon btn-simple">
+                            <i class="fa fa-trash"></i>
+                        </a>
+
+                        <a v-on:click="saveGroup(group)" rel="tooltip" title="Edit group" class="btn btn- btn-success btn-icon btn-simple">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             </tbody>
@@ -89,27 +90,27 @@
     import VueLocalStorage from 'vue-ls';
 
     export default {
-        name: "AccountList",
+        name: "GroupList",
         data () {
             return {
                 show_type: false,
-                accounts: []
+                groups: []
             }
         },
         props : ['uris','options'],
         methods: {
-            saveAccount(account){
-                console.log(account);
+            saveGroup(group){
+                console.log(group);
 
-                axios.post(this.options.uris.save_account,
+                axios.post(this.options.uris.save_group,
                     {
-                        id: account.id,
-                        name: account.name,
-                        category:account.category,
-                        photo: account.image,
+                        id: group.id,
+                        name: group.name,
+                        category:group.category,
+                        photo: group.photo,
                         user_id: this.$ls.get('user_id'),
-                        account_type: null,
-                        account_token: account.token
+                        group_type: null,
+                        group_token: group.token
                     },
                     { headers: {
                         'Content-type': 'application/json',
@@ -136,7 +137,7 @@
             console.log(token);
             var self = this;
 
-            axios.get(this.options.uris.account_list,
+            axios.get(this.options.uris.group_list,
                 { headers: {
                     'Content-type': 'application/json',
                     'Accept': 'application/json',
@@ -146,8 +147,8 @@
                 })
                 .then(response => {
                     if(response.data.success){
-                        console.log(response.data.data.accounts)
-                        self.accounts = response.data.data.accounts
+                        console.log(response.data.data.groups)
+                        self.groups = response.data.data.groups
                     }
                     //this.postResults.push(response);
                 })

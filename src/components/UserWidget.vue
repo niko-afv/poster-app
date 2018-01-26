@@ -59,7 +59,6 @@
             }
         },
         created(){
-            console.log(this.$keycloak)
             this.firstname = "Nicolás"
             this.lastname = 'Fredes'
             this.email = 'niko.afv@gmail.com'
