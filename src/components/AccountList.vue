@@ -17,7 +17,7 @@
                     </div>
                     <hr>
                     <div class="stats">
-                        <button type="button" v-on:click="saveAccount" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
+                        <button type="button" v-on:click="deleteAccount" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
                             <i class="fa fa-link"></i> Link
                         </button>
                     </div>
@@ -50,23 +50,18 @@
                     Facebook
                 </td>
                 <td class="td-actions">
-                    <!--
-                    <button type="button" rel="tooltip" data-placement="left" title="View Post" class="btn btn-info btn-simple btn-icon">
-                        <i class="fa fa-unlink"></i>
-                    </button>
-                    -->
-                    <button type="button" v-on:click="saveAccount(account)" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-fill btn-simple ">
-                        <i class="fa fa-link"></i> Link
-                    </button>
+                    <div class="btn-group">
+                        <a v-on:click="deleteAccount(account)" rel="tooltip" title="Delete account" class="btn btn-danger btn-icon btn-simple">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
                 </td>
             </tr>
             </tbody>
         </table>
 
-
         <div v-else="" style="margin-top: 10px;">
             <div class="card">
-
                 <div class="content">
                     <div class="alert alert-danger">
                         <span class="glyphicon glyphicon-exclamation-sign"></span> <strong>Something went wrong</strong>
@@ -98,19 +93,11 @@
         },
         props : ['uris','options'],
         methods: {
-            saveAccount(account){
-                console.log(account);
+            deleteAccount(account){
+                var self = this
+                var index = this.accounts.indexOf(account)
 
-                axios.post(this.options.uris.save_account,
-                    {
-                        id: account.id,
-                        name: account.name,
-                        category:account.category,
-                        photo: account.image,
-                        user_id: this.$ls.get('user_id'),
-                        account_type: null,
-                        account_token: account.token
-                    },
+                axios.delete(_api.urls.users.accounts.delete+account.id,
                     { headers: {
                         'Content-type': 'application/json',
                         'Accept': 'application/json',
@@ -121,6 +108,9 @@
                     .then(response => {
                         if(response.data.success){
                             console.log(response.data)
+                            self.accounts.splice(index, 1)
+                        }else{
+                            console.error('can not delete account')
                         }
                         //this.postResults.push(response);
                     })
@@ -148,6 +138,7 @@
                     if(response.data.success){
                         console.log(response.data.data.accounts)
                         self.accounts = response.data.data.accounts
+                        console.log('created')
                     }
                     //this.postResults.push(response);
                 })

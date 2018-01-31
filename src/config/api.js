@@ -17,6 +17,11 @@ export const
         users: {
             accounts: {
                 save: api_doamin + 'users/' + Vue.ls.get('user_id') + '/accounts',
+                delete: api_doamin + 'users/' + Vue.ls.get('user_id') + '/accounts/',
+
+            },
+            fanpages: {
+                list: api_doamin + 'fanpages/' + Vue.ls.get('user_id'),
 
             }
         }

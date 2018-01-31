@@ -6,6 +6,7 @@ import { routes } from './routes.js'
 import axios from 'axios';
 import VueLocalStorage from 'vue-ls';
 import * as Config from './config/app'
+import * as Api from './config/api'
 
 Vue.use(require('@websanova/vue-env'));
 
@@ -13,6 +14,7 @@ global.jQuery = jQuery
 global.$ = jQuery
 global.axios = axios
 global._config = Config
+global._api = Api
 
 let Bootstrap = require('bootstrap')
 import 'bootstrap/dist/css/bootstrap.css'

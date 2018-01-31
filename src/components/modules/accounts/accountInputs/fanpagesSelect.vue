@@ -16,6 +16,7 @@
 
 <script>
     import vSelect from 'vue-select'
+    import * as Api from '../../../../config/api'
 
     export default {
         name: 'fanPagesSelect',
@@ -30,7 +31,7 @@
                 selected_account: null,
                 fb_account_list: [],
                 urls:{
-                    account_list: _config.domain_app + 'fanpages',
+                    account_list: Api.urls.users.fanpages.list,
                 },
 
                 token: this.$ls.get('user_token')
